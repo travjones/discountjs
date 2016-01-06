@@ -87,10 +87,11 @@ var task = (function() {
     var amountCounter = 0,
     amountCounterAsc = taskData.immAmount.length - 1;
 
+    // arrays for immediate choices in descending and ascending order
     immChoicesDesc = [],
     immChoicesAsc = [];
 
-    // remember: variable declarations without var are automatically GLOBAL
+    // setup initial trial
     immBtn = document.getElementById("imm-btn");
     delBtn = document.getElementById("del-btn");
     immBtn.textContent = "$" + taskData.immAmount[amountCounter];
@@ -117,34 +118,32 @@ var task = (function() {
 
     var recordAnswer = function() {
         if (amountCounter > taskData.immAmount.length - 1) {
-            //splice $ from string
-            // immChoicesAsc.push(parseInt(immBtn.textContent.substring(1)));
             immChoicesAsc.push(taskData.immAmount[amountCounterAsc]);
             console.log(immChoicesAsc);
             nextQuestion();
         } else {
-            //splice $ from string
-            // immChoicesDesc.push(parseInt(immBtn.textContent.substring(1)));
             immChoicesDesc.push(taskData.immAmount[amountCounter]);
             console.log(immChoicesDesc);
             nextQuestion();
         }
     };
 
-    // event listeners
+    // event listeners for choice buttons
     immBtn.addEventListener("click", recordAnswer);
     delBtn.addEventListener("click", nextQuestion);
 });
 
 function showResults() {
-    // alert("results!");
+    // load results template
     var resultsHTML = "<div class=\"results-container\">\r\n  <div class=\"container u-vert-align\">\r\n    <div class=\"row\">\r\n      <div class=\"u-full-width\"><h3>Results<\/h3><\/div>\r\n    <\/div>\r\n    <div class=\"row\">\r\n      <div class=\"u-full-width\" id=\"results-k\"><\/div>\r\n      <div class=\"u-full-width\" id=\"results-a\"><\/div>\r\n      <div class=\"u-full-width\" id=\"results-graph\"><\/div>\r\n    <\/div>\r\n  <\/div>\r\n<\/div>";
     document.body.innerHTML = resultsHTML;
+    
     calc();
 }
 
 function sendData() {
-    var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance
+    // XHR (Ajax) POST request -> subjectData as JSON
+    var xmlhttp = new XMLHttpRequest();
     xmlhttp.open("POST", "/data");
     xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     xmlhttp.send(JSON.stringify(subjectData));
