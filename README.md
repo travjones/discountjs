@@ -23,7 +23,7 @@ Change it to:
 	<script type="text/javascript" src="serial.js"></script>
 ```
 ####Adjusting delay task
-If you would like to use the adjusting delay task, you will have to edit two lines of code in index.html. Open index.html in a text editor (I recommend Sublime Text)
+If you would like to use the adjusting delay task, you will have to edit one line of code in index.html. Open index.html in a text editor (I recommend Sublime Text).
 
 Find this line.
 ```html
