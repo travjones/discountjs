@@ -15,16 +15,21 @@ Click "Download ZIP" (upper-right) and unzip. Open index.html. The adjusting amo
 If you would like to use the serial (similar to Bickel et al., 1999) task instead, you will have to edit one line of code in index.html. Open index.html in a text editor (I recommend Sublime Text).
 
 Find this line.
+```html
 	<script type="text/javascript" src="adjamount.js"></script>
-
+```
 Change it to:
+```html
 	<script type="text/javascript" src="serial.js"></script>
-
+```
 ####Adjusting delay task
 If you would like to use the adjusting delay task, you will have to edit two lines of code in index.html. Open index.html in a text editor (I recommend Sublime Text)
 
 Find this line.
+```html
 	<script type="text/javascript" src="adjamount.js"></script>
-
+```
 Change it to:
+```html
 	<script type="text/javascript" src="adjdelay-ed50.js"></script>
+```
