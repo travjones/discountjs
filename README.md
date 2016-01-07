@@ -33,3 +33,6 @@ Change it to:
 ```html
 	<script type="text/javascript" src="adjdelay-ed50.js"></script>
 ```
+
+####main.go
+I included a main.go file to demonstrate how one could serve the static files (e.g., discountjs frontend JS), accept subject data from the discounting task as JSON via POST request, and persist this data in a database. 
