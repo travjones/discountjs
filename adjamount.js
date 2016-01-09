@@ -9,23 +9,22 @@ var taskData = {
     }, {
         inMonths: 0.5,
         inWords: "2 weeks"
+    }, {
+        inMonths: 1,
+        inWords: "1 month"
+    }, {
+        inMonths: 6,
+        inWords: "6 months"
+    }, {
+        inMonths: 12,
+        inWords: "1 year"
+    }, {
+        inMonths: 60,
+        inWords: "5 years"
+    }, {
+        inMonths: 300,
+        inWords: "25 years"
     }]
-    // , {
-    //     inMonths: 1,
-    //     inWords: "1 month"
-    // }, {
-    //     inMonths: 6,
-    //     inWords: "6 months"
-    // }, {
-    //     inMonths: 12,
-    //     inWords: "1 year"
-    // }, {
-    //     inMonths: 60,
-    //     inWords: "5 years"
-    // }, {
-    //     inMonths: 300,
-    //     inWords: "25 years"
-    // }]
 };
 
 // subject data
@@ -135,7 +134,7 @@ function showResults() {
 }
 
 function sendData() {
-    var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance
+    var xmlhttp = new XMLHttpRequest();   // should use fetch -- XHR is deprecated
     xmlhttp.open("POST", "/data");
     xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     xmlhttp.send(JSON.stringify(subjectData));
